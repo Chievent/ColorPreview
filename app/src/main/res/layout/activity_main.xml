@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <ToggleButton
+                android:id="@+id/ripple_toggle"
+                style="?attr/borderlessButtonStyle"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:checked="true"
+                android:textAllCaps="false"
+                android:textOff="Selector Mode"
+                android:textOn="Ripple Mode"/>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context="me.chievent.colorpreview.MainActivity">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/normal_color_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/preview_icon_size"
+            android:layout_marginStart="@dimen/preview_icon_size"
+            app:hintAnimationEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/normal_color_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789abcdefABCDEF"
+                android:hint="Normal Color(without #)"
+                android:imeOptions="actionNext"
+                android:inputType="textCapCharacters|textNoSuggestions"
+                android:letterSpacing="0.03"
+                android:maxLength="8"
+                android:nextFocusForward="@+id/pressed_color_input"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:text="FFFFFF"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/pressed_color_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/normal_color_wrapper"
+            android:layout_marginLeft="@dimen/preview_icon_size"
+            android:layout_marginStart="@dimen/preview_icon_size"
+            app:hintAnimationEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/pressed_color_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="0123456789abcdefABCDEF"
+                android:hint="Pressed Color(without #)"
+                android:imeOptions="actionNext"
+                android:inputType="textCapCharacters|textNoSuggestions"
+                android:letterSpacing="0.03"
+                android:maxLength="8"
+                android:nextFocusForward="@+id/normal_color_input"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:text="000000"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <View
+            android:id="@+id/normal_color_preview"
+            android:layout_width="@dimen/preview_icon_size"
+            android:layout_height="@dimen/preview_icon_size"
+            android:layout_alignBottom="@+id/normal_color_wrapper"
+            android:layout_marginBottom="8dp"
+            tools:background="#000"/>
+
+        <View
+            android:id="@+id/pressed_color_preview"
+            android:layout_width="@dimen/preview_icon_size"
+            android:layout_height="@dimen/preview_icon_size"
+            android:layout_alignBottom="@+id/pressed_color_wrapper"
+            android:layout_marginBottom="8dp"
+            tools:background="#000"/>
+
+
+        <View
+            android:id="@+id/preview_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/pressed_color_wrapper"
+            android:layout_margin="16dp"
+            android:background="#0000"
+            android:clickable="true"
+            android:longClickable="true"/>
+
+
+    </RelativeLayout>
+</FrameLayout>
